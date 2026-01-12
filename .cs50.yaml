@@ -1,0 +1,9 @@
+submit50:
+  files:
+    - !require tracker.py
+    - !require prompt_log.txt
+    - !requre DKC-Lite.md
+
+check50:
+  files:
+    - !require tracker.py

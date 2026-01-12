@@ -12,4 +12,4 @@ def run_file():
     try:
         check50.run("python3 tracker3.py").exit(0)
     except:
-        check50.Failure("cannot run tracker.py")
+         raise check50.Failure("cannot run tracker.py")

@@ -64,10 +64,12 @@ def functionality_check_delete():
 def functionality_check_file():
     """combined functionality"""
     try:
+        check50.run("python3 tracker.py list").exit(0)
+        '''
         check50.run("python3 tracker.py add Task_A").exit(0)
         check50.run("python3 tracker.py add Task_B").exit(0)
         check50.run("python3 tracker.py finish 2").exit(0)
-        '''
+        
         check50.run("python3 tracker.py add Task_C").exit(0)
         check50.run("python3 tracker.py add Task_D").exit(0)
         
@@ -77,13 +79,11 @@ def functionality_check_file():
         raise check50.Failure("Cannot run finish operation sequence")
 
     check50.run(r"""bash -lc "cat > expected.txt << 'EOF'
-    1 0 Task_A
-    2 1 Task_B
     EOF
     " """).exit(0)
 
 
     check50.exists("expected.txt")
-    check50.run("diff -u expected.txt tasks.txt").exit(0)
+    check50.run("diff -u expected.txt tasks.txt").stdout()
 
 

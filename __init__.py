@@ -172,6 +172,6 @@ def functionality_check_file():
     if len(events) != 3:
         raise check50.Failure("tasks.txt contains wrong number of task entries.")
 
-    if events[1]["status"] != "1" or events[0]["task_id"] != "1" or events[2]["name"] != "Task_D":
+    if events[1]["status"] != "1" or events[0]["id"] != "1" or events[2]["name"] != "Task_D":
         raise check50.Failure("tasks.txt has wrong entries")
 

@@ -81,7 +81,14 @@ def functionality_check_file():
     2	1	Task_B
     EOF
     " """).exit(0)
+
+    check50.run(r"""bash -lc "cat > expected1.txt << 'EOF'
+    1	0	Task_A
+    2	1	Task_B
+    EOF
+    " """).exit(0)
     check50.exists("expected.txt")
-    check50.run("diff -u expected.txt tasks.txt").exit(0)
+    check50.exists("expected1.txt")
+    check50.run("diff -u expected.txt expected1.txt").exit(0)
 
 

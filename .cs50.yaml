@@ -3,7 +3,7 @@ submit50:
     - !exclude "*"
     - !require tracker.py
     - !require prompt_log.txt
-    - !requre DKC-Lite.md
+    - !require DKC-Lite.md
 
 check50:
   files:

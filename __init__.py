@@ -5,10 +5,9 @@ import check50
 def check_file():
     '''tracker.py exists'''
     check50.exists("tracker.py")
-    check50.exists("tasks.txt")
-    check50.exists("audit.txt")
 
-#@check50.check()
+
+@check50.check()
 def run_tracker():
     '''run tracker.py'''
     try:

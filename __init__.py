@@ -78,9 +78,9 @@ def functionality_check_file():
         raise check50.Failure("Cannot run finish operation sequence")
 
     check50.run(r"""bash -lc "cat > expected.txt << 'EOF'
-    1 0 Task_A
-    2 1 Task_B
-    4 0 Task_D
+    1   0   Task_A
+    2   1   Task_B
+    4   0   Task_D
     EOF
     " """).exit(0)
 

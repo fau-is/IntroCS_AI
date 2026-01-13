@@ -86,6 +86,6 @@ def functionality_check_file():
 
 
     check50.exists("expected.txt")
-    check50.run("diff -u expected.txt tasks.txt").stdout()
+    check50.run("diff -u expected.txt tasks.txt").exit(0)
 
 

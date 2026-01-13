@@ -63,6 +63,7 @@ def functionality_check_delete():
 @check50.check()
 def functionality_check_file():
     """combined functionality"""
+    check50.exists("example.txt")
     try:
         check50.run("python3 tracker.py add Task_A").exit(0)
         check50.run("python3 tracker.py add Task_B").exit(0)

@@ -61,6 +61,8 @@ def functionality_check_delete():
 def functionality_check_file():
     """combined functionality"""
     check50.run("rm -f tasks.txt audit.txt")
+    check50.exists("tasks.txt")
+    check50.exists("audit.txt")
     try:
         check50.run("python3 tracker.py add Task_A").exit(0)
         #check50.run("python3 tracker.py add Task_B").exit(0)

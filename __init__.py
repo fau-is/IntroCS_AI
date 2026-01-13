@@ -66,9 +66,9 @@ def functionality_check_file():
 
     try:
         check50.run("python3 tracker.py add Task_A").exit(0)
-        '''
         check50.run("python3 tracker.py add Task_B").exit(0)
         check50.run("python3 tracker.py finish 2").exit(0)
+        '''
         check50.run("python3 tracker.py add Task_C").exit(0)
         check50.run("python3 tracker.py add Task_D").exit(0)
         
@@ -80,8 +80,14 @@ def functionality_check_file():
     check50.exists("tasks.txt")
     check50.exists("audit.txt")
 
+    check50.run(r"""bash -lc "cat > expected.txt << 'EOF'
+    1	0	Task_A
+    2	1	Task_B
+    EOF
+    " """).exit(0)
+
     try:
-        check50.run("diff -u example.txt tasks.txt").exit(0)
+        check50.run("diff -u expected.txt tasks.txt").exit(0)
     except:
         raise check50.Failure("The output of tasks.txt does not follow the expected format")
 

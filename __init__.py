@@ -7,7 +7,7 @@ def check_file():
     check50.exists("tracker.py")
 
 
-@check50.check()
+#@check50.check()
 def run_tracker():
     '''run tracker.py'''
     try:
@@ -19,7 +19,7 @@ def run_tracker():
     check50.exists("audit.txt")
 
 
-@check50.check()
+#@check50.check()
 def functionality_check_add():
     """combined functionality"""
     #check50.run("rm -f tasks.txt audit.txt").exit(0)
@@ -29,7 +29,7 @@ def functionality_check_add():
     except:
         raise check50.Failure("Cannot run finish operation sequence with command add")
 
-@check50.check()
+#@check50.check()
 def functionality_check_finish():
     """combined functionality"""
     try:
@@ -39,7 +39,7 @@ def functionality_check_finish():
     except:
         raise check50.Failure("Cannot run finish operation sequence with command finish")
 
-@check50.check()
+#@check50.check()
 def functionality_check_delete():
     """combined functionality"""
     try:

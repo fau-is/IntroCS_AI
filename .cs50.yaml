@@ -9,3 +9,4 @@ check50:
   files:
     - !exclude "*"
     - !require tracker.py
+    - !require example.txt

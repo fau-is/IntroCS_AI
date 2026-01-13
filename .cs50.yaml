@@ -7,4 +7,5 @@ submit50:
 
 check50:
   files:
+    - !exclude "*"
     - !require tracker.py

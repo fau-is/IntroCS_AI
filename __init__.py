@@ -18,6 +18,12 @@ def run_tracker():
     check50.exists("tasks.txt")
     check50.exists("audit.txt")
 
+@check50.check()
+def run_tracker_file():
+    '''check file without running tracker.py '''
+    check50.exists("tasks.txt")
+    check50.exists("audit.txt")
+
 
 #@check50.check()
 def functionality_check_add():
@@ -57,7 +63,7 @@ def functionality_check_delete():
     except:
         raise check50.Failure("Cannot run finish operation sequence with command list")
 
-#@check50.check()
+@check50.check()
 def functionality_check_file():
     """combined functionality"""
     check50.run("rm -f tasks.txt audit.txt")
@@ -65,11 +71,11 @@ def functionality_check_file():
     check50.exists("audit.txt")
     try:
         check50.run("python3 tracker.py add Task_A").exit(0)
-        #check50.run("python3 tracker.py add Task_B").exit(0)
-        #check50.run("python3 tracker.py finish 2").exit(0)
-        #check50.run("python3 tracker.py add Task_C").exit(0)
-        #check50.run("python3 tracker.py add Task_D").exit(0)
-        #check50.run("python3 tracker.py delete 3").exit(0)
+        check50.run("python3 tracker.py add Task_B").exit(0)
+        check50.run("python3 tracker.py finish 2").exit(0)
+        check50.run("python3 tracker.py add Task_C").exit(0)
+        check50.run("python3 tracker.py add Task_D").exit(0)
+        check50.run("python3 tracker.py delete 3").exit(0)
         check50.run("diff -u example.txt tasks.txt").exit(0)
     except:
         raise check50.Failure("The output of tasks.txt does not follow the expected format")

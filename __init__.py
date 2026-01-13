@@ -81,7 +81,7 @@ def functionality_check_file():
     2	1	Task_B
     EOF
     " """).exit(0)
-
+    check50.exists("expected.txt")
     check50.run("diff -u expected.txt tasks.txt").exit(0)
 
 

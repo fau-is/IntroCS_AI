@@ -63,8 +63,7 @@ def functionality_check_delete():
 @check50.check()
 def functionality_check_file():
     """combined functionality"""
-    check50.exists("tasks.txt")
-    check50.exists("audit.txt")
+
     try:
         check50.run("python3 tracker.py add Task_A").exit(0)
         '''
@@ -75,8 +74,14 @@ def functionality_check_file():
         
         check50.run("python3 tracker.py delete 3").exit(0)
         '''
-        check50.run("diff -u example.txt tasks.txt").exit(0)
+    except:
+        raise check50.Failure("Cannot run finish operation sequence")
 
+    check50.exists("tasks.txt")
+    check50.exists("audit.txt")
+
+    try:
+        check50.run("diff -u example.txt tasks.txt").exit(0)
     except:
         raise check50.Failure("The output of tasks.txt does not follow the expected format")
 

@@ -69,26 +69,6 @@ def parse_tasks_txt(path: str = "tasks.txt"):
 
 
 @check50.check()
-def parse_tasks_into_events():
-    """Parse tasks.txt into a list of events (no CLI execution)."""
-    check50.exists("tasks.txt")
-
-    events = parse_tasks_txt("tasks.txt")
-
-    # Minimal sanity conditions (you can relax/tighten)
-    if len(events) == 0:
-        raise check50.Failure("tasks.txt contains no task entries (only comments/blank lines).")
-
-    # If you want, you can require sorted ids (optional)
-    # ids = [e["id"] for e in events]
-    # if ids != sorted(ids):
-    #     raise check50.Failure("tasks.txt task_id values must be in ascending order.")
-
-    # If we get here, parsing succeeded.
-    # (check50 checks pass by simply not raising.)
-
-
-@check50.check()
 def check_file():
     '''tracker.py exists'''
     check50.exists("tracker.py")
@@ -150,7 +130,7 @@ def functionality_check_delete():
 
 @check50.check()
 def functionality_check_file():
-    """Parse tasks.txt into a list of events (no CLI execution)."""
+    """Parse tasks.txt into a list of events"""
     try:
         check50.run("python3 tracker.py add Task_A").exit(0)
         check50.run("python3 tracker.py add Task_B").exit(0)

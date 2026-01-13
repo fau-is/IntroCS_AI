@@ -88,7 +88,7 @@ def run_tracker():
 
 @check50.check()
 def functionality_check_add():
-    """combined functionality"""
+    """functionality check for command add"""
     #check50.run("rm -f tasks.txt audit.txt").exit(0)
     try:
         check50.run("python3 tracker.py add Task_A").exit(0)
@@ -99,7 +99,7 @@ def functionality_check_add():
 
 @check50.check()
 def functionality_check_finish():
-    """combined functionality"""
+    """functionality check for command finish"""
     try:
         check50.run("python3 tracker.py add Task_A").exit(0)
         check50.run("python3 tracker.py add Task_B").exit(0)
@@ -110,7 +110,7 @@ def functionality_check_finish():
 
 @check50.check()
 def functionality_check_delete():
-    """combined functionality"""
+    """functionality check for command delete"""
     try:
         check50.run("python3 tracker.py add Task_A").exit(0)
         check50.run("python3 tracker.py add Task_B").exit(0)
@@ -130,7 +130,7 @@ def functionality_check_delete():
 
 @check50.check()
 def functionality_check_file():
-    """Parse tasks.txt into a list of events"""
+    """Check the functionality of tracker.py"""
     try:
         check50.run("python3 tracker.py add Task_A").exit(0)
         check50.run("python3 tracker.py add Task_B").exit(0)

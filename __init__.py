@@ -147,43 +147,19 @@ def functionality_check_delete():
         raise check50.Failure("Cannot run finish operation sequence with command list")
 
 
+
 @check50.check()
 def functionality_check_file():
-    """combined functionality"""
-    try:
-        check50.run("python3 tracker.py list").exit(0)
-        '''
-        check50.run("python3 tracker.py add Task_A").exit(0)
-
-        check50.run("python3 tracker.py add Task_B").exit(0)
-        check50.run("python3 tracker.py finish 2").exit(0)
-        
-        check50.run("python3 tracker.py add Task_C").exit(0)
-        check50.run("python3 tracker.py add Task_D").exit(0)
-        
-        check50.run("python3 tracker.py delete 3").exit(0)
-        '''
-
-    except:
-        raise check50.Failure("Cannot run finish operation sequence")
-
-    check50.run(r"""bash -lc "cat > expected.txt << 'EOF'
-    EOF
-    " """).exit(0)
-
-
-    check50.exists("expected.txt")
-    check50.run("diff -u expected.txt tasks.txt").exit(0)
-
-
-@check50.check()
-def parse_tasks_into_events():
     """Parse tasks.txt into a list of events (no CLI execution)."""
     try:
         check50.run("python3 tracker.py add Task_A").exit(0)
         check50.run("python3 tracker.py add Task_B").exit(0)
+        check50.run("python3 tracker.py finish 2").exit(0)
+        check50.run("python3 tracker.py add Task_C").exit(0)
+        check50.run("python3 tracker.py add Task_D").exit(0)
+        check50.run("python3 tracker.py delete 3").exit(0)
     except:
-        raise check50.Failure("Cannot run finish operation sequence with command add")
+        raise check50.Failure("Cannot run finish operation sequence with command sequence")
 
     check50.exists("tasks.txt")
 
@@ -193,5 +169,9 @@ def parse_tasks_into_events():
     if len(events) == 0:
         raise check50.Failure("tasks.txt contains no task entries (only comments/blank lines).")
 
-    if len(events) != 2:
+    if len(events) != 3:
         raise check50.Failure("tasks.txt contains wrong number of task entries.")
+
+    if events[0]["status"] != "0" or events[0]["task_id"] != "1" or events[1]["name"] != "Task_A":
+        raise check50.Failure("Task_A has wrong entries")
+

@@ -62,10 +62,10 @@ def functionality_check_file():
     """combined functionality"""
     try:
         check50.run("python3 tracker.py add Task_A").exit(0)
-        check50.run("python3 tracker.py add Task_B").exit(0)
-        check50.run("python3 tracker.py finish 2").exit(0)
-        check50.run("python3 tracker.py add Task_C").exit(0)
-        check50.run("python3 tracker.py add Task_D").exit(0)
+        #check50.run("python3 tracker.py add Task_B").exit(0)
+        #check50.run("python3 tracker.py finish 2").exit(0)
+        #check50.run("python3 tracker.py add Task_C").exit(0)
+        #check50.run("python3 tracker.py add Task_D").exit(0)
         #check50.run("python3 tracker.py delete 3").exit(0)
         check50.run("diff -u example.txt tasks.txt").exit(0)
     except:

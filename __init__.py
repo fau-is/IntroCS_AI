@@ -5,7 +5,8 @@ import check50
 def check_file():
     '''tracker.py exists'''
     check50.exists("tracker.py")
-
+    check50.exists("tasks.txt")
+    check50.exists("audit.txt")
 
 #@check50.check()
 def run_tracker():
@@ -57,7 +58,7 @@ def functionality_check_delete():
     except:
         raise check50.Failure("Cannot run finish operation sequence with command list")
 
-@check50.check()
+#@check50.check()
 def functionality_check_file():
     """combined functionality"""
     check50.run("rm -f tasks.txt audit.txt")

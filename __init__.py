@@ -42,8 +42,8 @@ def functionality_check():
 
     try:
         check50.run("python3 tracker.py delete 3").exit(0)
-    except:
-        raise check50.Failure("Cannot run finish operation sequence with command delete")
+    except Exception as e:
+        raise check50.Failure(str(e)) #"Cannot run finish operation sequence with command delete")
 
     try:
         check50.run("python3 tracker.py list").exit(0)

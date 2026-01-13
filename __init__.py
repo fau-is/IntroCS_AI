@@ -57,6 +57,7 @@ def functionality_check_delete():
     except:
         raise check50.Failure("Cannot run finish operation sequence with command list")
 
+@check50.check()
 def functionality_check_file():
     """combined functionality"""
     try:

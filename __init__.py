@@ -86,9 +86,7 @@ def functionality_check_file():
     EOF
     " """).exit(0)
 
-    try:
-        check50.run("diff -u expected.txt tasks.txt").exit(0)
-    except:
-        raise check50.Failure("The output of tasks.txt does not follow the expected format")
+    check50.run("ls -la").exit(0)
+    check50.run("diff -u expected.txt tasks.txt").exit(0)
 
 

@@ -82,6 +82,6 @@ def functionality_check_file():
     EOF
     " """).exit(0)
 
-    check50.run("cat expected.txt").exit(0)
+    check50.run("diff -u expected.txt tasks.txt").exit(0)
 
 
